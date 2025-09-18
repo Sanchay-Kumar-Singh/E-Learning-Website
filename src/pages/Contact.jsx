@@ -97,6 +97,7 @@ export default function Contact() {
       >
         Send Message
       </button>
+      <br />
     </form>
   );
 }
