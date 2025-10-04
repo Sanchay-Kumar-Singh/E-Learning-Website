@@ -98,7 +98,7 @@ export default function Home() {
   return (
  <>
     <div className="text-center py-22 xl:mt-16 mt-12">
-         <img src={photo} alt="" className="mx-auto w-300 h-100 rounded-3xl"/><br /><br />
+         <img src={photo} alt=""  className="mx-auto w-95 sm:w-300 h-132 rounded-3xl"/><br /><br />
       <h1 className="text-4xl font-bold mb-4 text-blue-700">Welcome to E-Learning website 🚀</h1>
       <p className="text-lg text-gray-900">Welcome to E-Learn, your personalized platform for mastering technology and career-ready skills. <br />  Whether you’re a student, professional, or lifelong learner, we provide structured courses, interactive roadmaps, and hands-on projects to accelerate your growth. <br /> Start learning today and take your first step towards success.</p>
   <br /><br />
