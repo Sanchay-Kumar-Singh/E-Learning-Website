@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/image.png";
+import {useClerk,UserButton,useUser} from '@clerk/clerk-react'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  
+
+const{user}=useUser()
+const{openSignIn}=useClerk()
+
 
   return (
-    <div className="text-sm text-white w-full fixed">
+    <div className="text-sm text-white w-full fixed z-1">
       {/* Top offer bar */}
       <div className="text-center font-medium py-2 bg-gradient-to-r from-violet-500 via-[#9938CA] to-[#E0724A]">
         <p>
@@ -55,18 +59,18 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        {/* Desktop CTA Button */}
-<div className="hidden md:flex justify-center mt-2">
-  <Link
-    to="/course"
-    className="bg-white text-gray-900 border border-gray-400 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full flex items-center justify-center"
-  >
-    Enroll Courses
-  </Link>
-</div>
+         {
+              user ? <UserButton/>:(
+                <button 
+  onClick={openSignIn} 
+  className="hidden sm:flex bg-white text-gray-900 border border-gray-400 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full items-center justify-center"
+>
+  Get Started
+</button>
 
-
-
+              )
+            }
+ 
         {/* Mobile menu button */}
         <button
           aria-label="menu-btn"
@@ -135,15 +139,12 @@ export default function Navbar() {
               </li>
             </ul>
 
-            <div className="flex justify-center mt-2">
-  <Link
-    to="/course"
-    className="bg-white text-gray-600 border border-gray-300 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full flex items-center justify-center"
-  >
-    Enroll Courses
-  </Link>
-</div>
-          </div>
+             {
+              user ? <UserButton/>:(
+               <button onClick={openSignIn} className="bg-white text-gray-900 border border-gray-400 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full flex items-center justify-center">Get Started</button>
+              )
+            }
+            </div>
         )}
       </nav>
     </div>
