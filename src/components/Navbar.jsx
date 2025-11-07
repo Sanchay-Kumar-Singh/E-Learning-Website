@@ -1,26 +1,27 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/image.png";
 import {useClerk,UserButton,useUser} from '@clerk/clerk-react'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-
-const{user}=useUser()
-const{openSignIn}=useClerk()
-
+  
+const { user}=useUser();
+const {openSignIn}=useClerk();
 
   return (
     <div className="text-sm text-white w-full fixed z-1">
       {/* Top offer bar */}
-      <div className="text-center font-medium py-2 bg-gradient-to-r from-violet-500 via-[#9938CA] to-[#E0724A]">
-        <p>
-          Exclusive Price Drop! Hurry,{" "}
-          <span className="underline underline-offset-2">
-            Offer Ends Soon!
-          </span>
-        </p>
-      </div>
+   <Link to="/course">
+  <div className="cursor-pointer text-center font-medium py-2 bg-gradient-to-r from-violet-500 via-[#9938CA] to-[#E0724A]">
+    <p>
+      Exclusive Price Drop! Hurry,{" "}
+      <span className="underline underline-offset-2">
+        Offer Ends Soon!
+      </span>
+    </p>
+  </div>
+</Link>
 
       {/* Main Navbar */}
       <nav className=" relative h-[70px] flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 bg-white text-gray-900 transition-all shadow">
@@ -59,18 +60,12 @@ const{openSignIn}=useClerk()
             </Link>
           </li>
         </ul>
-         {
-              user ? <UserButton/>:(
-                <button 
-  onClick={openSignIn} 
-  className="hidden sm:flex bg-white text-gray-900 border border-gray-400 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full items-center justify-center"
->
-  Get Started
-</button>
-
-              )
-            }
- 
+        {/* Desktop CTA Button */}
+{
+  user ? <UserButton/>:(
+ <button onClick={openSignIn} className="bg-white  text-gray-900 border border-gray-400 text-sm  hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full md:flex items-center justify-center hidden"> Get Started</button>   
+  )
+}
         {/* Mobile menu button */}
         <button
           aria-label="menu-btn"
@@ -139,12 +134,12 @@ const{openSignIn}=useClerk()
               </li>
             </ul>
 
-             {
+            {
               user ? <UserButton/>:(
-               <button onClick={openSignIn} className="bg-white text-gray-900 border border-gray-400 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full flex items-center justify-center">Get Started</button>
+  <button onClick={openSignIn} className=" bg-white text-gray-600 border border-gray-300 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full flex items-center justify-center">Get Started</button>
               )
             }
-            </div>
+          </div>
         )}
       </nav>
     </div>
