@@ -63,14 +63,15 @@ const {openSignIn}=useClerk();
         {/* Desktop CTA Button */}
 {
   user ? <UserButton/>:(
- <button onClick={openSignIn} className="bg-white  text-gray-900 border border-gray-400 text-sm  hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full md:flex items-center justify-center hidden"> Get Started</button>   
+ <button onClick={openSignIn} className="hidden md:flex bg-white text-gray-900 border border-gray-400 text-sm hover:bg-gray-50 active:scale-95 transition-all w-40 h-11 rounded-full items-center justify-center"
+> Get Started</button>   
   )
 }
         {/* Mobile menu button */}
         <button
           aria-label="menu-btn"
           type="button"
-          className="menu-btn inline-block md:hidden active:scale-90 transition"
+          className="menu-btn inline-block md:hidden active:scale-90 transition "
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           <svg

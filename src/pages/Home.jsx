@@ -99,21 +99,15 @@ export default function Home() {
   ];
 
   return (
-    <>
-      {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-center py-22 xl:mt-16 mt-12"
-      >
-        <motion.img
+    <div className="mt-26 ml-1 mr-1">
+
+       <motion.img
           src={photo}
           alt="E-Learning"
-          className="mx-auto w-95 sm:w-300 h-132 rounded-3xl"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 200 }}
+          className="w-full h-full md:h-120 object-cover"
         />
+    <div className=" text-center"> 
+      
         <br />
         <motion.h1
           className="text-4xl font-bold mb-4 text-blue-700"
@@ -123,6 +117,7 @@ export default function Home() {
         >
           Welcome to E-Learning website 🚀
         </motion.h1>
+      
         <p className="text-lg text-gray-900">
           Welcome to E-Learn, your personalized platform for mastering technology and career-ready skills.
           <br />
@@ -131,7 +126,7 @@ export default function Home() {
           <br />
           Start learning today and take your first step towards success.
         </p>
-      </motion.div>
+      </div>
 
       {/* About Section */}
       <motion.section
@@ -358,6 +353,6 @@ export default function Home() {
           Send Message
         </motion.button>
       </motion.form>
-    </>
+    </div>
   );
 }
